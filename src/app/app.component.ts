@@ -17,7 +17,10 @@ export class AppComponent implements OnInit {
   // multi-select testing
   selectedOption: number;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.controlNodes = this.getControlNodes();
+    this.onSelect(this.selectedControlNodes.id);
+  }
 
   onSelect(controlNodeId): void {
     this.selectedOption = 0;

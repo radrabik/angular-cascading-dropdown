@@ -4,23 +4,17 @@
 </p>
 
 <!-- Control Node dropdown -->
-<div class="col-md-3">
-  <div class="form-group">
-    <div class="form-group__text select">
-      <label class="text-turquoise text-bold">Control nodes</label>
-      <select (change)="onSelect($event.target.value)">
-          <option value="0">--Select--</option>
-          <option *ngFor="let nodes of controlNodes" value= {{nodes.id}}>{{nodes.name}}</option>
-        </select>
-    </div>
-  </div>
-</div>
+<label>Control nodes</label>
+<select [(ngModel)]="selectedOption" (change)="onSelect($any($event.target).value)">
+  <option value="0">--Select--</option>
+  <option *ngFor="let nodes of controlNodes" value= {{nodes.id}}>{{nodes.name}}</option>
+</select>
 
 <!-- Manage Node dropdown -->
 <div class="col-md-3">
-  <label class="text-turquoise text-bold">Managed nodes</label>
-  <ng-select [items]="managedNodes" bindLabel="name" bindValue="id" [multiple]="true" [closeOnSelect]="true"
-    [hideSelected]="true" [(ngModel)]="selectedOption">
-  </ng-select>
-
+  <label>Managed nodes</label>
+  <select>
+    <option value="0">--Select--</option>
+    <option *ngFor="let node of managedNodes " value= {{node.id}}>{{node.name}}</option>
+  </select>
 </div>
